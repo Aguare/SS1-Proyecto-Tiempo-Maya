@@ -3,11 +3,15 @@
 
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
-$informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
-$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
-
-
+$informacion = $conn->query("SELECT htmlCodigo, seccion, nombre FROM tiempo_maya.pagina WHERE categoria='$pagina' ORDER BY orden;");
+$secciones = $conn->query("SELECT seccion 
+FROM tiempo_maya.pagina WHERE categoria='$pagina' GROUP BY seccion
+ORDER BY (
+    SELECT MIN(orden) 
+    FROM tiempo_maya.pagina AS p 
+    WHERE p.seccion = pagina.seccion
+);");
+$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='$pagina' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
 ?>
 
@@ -37,7 +41,6 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
             ?>
         </div>
     </section>
-
     <?php
 
 
@@ -74,15 +77,8 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
 
     ?>
 
-
-
-
-
     <?php include "../blocks/bloquesJs.html" ?>
-
-
-
-
+    <script src="../js/CambiarFondo2.js"></script>
 </body>
 
 </html>

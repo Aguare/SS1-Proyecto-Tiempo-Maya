@@ -79,7 +79,7 @@ $cholquij = $nahual." ". strval($energia);
 
 
     <?php include "blocks/bloquesJs1.html" ?>
-
+    <script src="js/CambiarFondo.js"></script>
 </body>
 
 </html>
