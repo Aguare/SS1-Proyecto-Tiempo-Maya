@@ -3,15 +3,15 @@
 
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
-$informacion = $conn->query("SELECT htmlCodigo, seccion, nombre FROM tiempo_maya.pagina WHERE categoria='$pagina' ORDER BY orden;");
+$informacion = $conn->query("SELECT htmlCodigo, seccion, nombre FROM tiempomaya.pagina WHERE categoria='$pagina' ORDER BY orden;");
 $secciones = $conn->query("SELECT seccion 
-FROM tiempo_maya.pagina WHERE categoria='$pagina' GROUP BY seccion
+FROM tiempomaya.pagina WHERE categoria='$pagina' GROUP BY seccion
 ORDER BY (
     SELECT MIN(orden) 
-    FROM tiempo_maya.pagina AS p 
+    FROM tiempomaya.pagina AS p 
     WHERE p.seccion = pagina.seccion
 );");
-$elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria='$pagina' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
+$elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='$pagina' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
 ?>
 
@@ -57,7 +57,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
                 foreach ($elementos as $elemento) {
                     if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
                         $tabla = strtolower($elemento['nombre']);
-                        $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+                        $elementosEl = $conn->query("SELECT nombre FROM tiempomaya." . $tabla . ";");
                         $stringPrint .= "<ul>";
                         foreach ($elementosEl as $el) {
                             if ($el['nombre'] == "Informacion") {

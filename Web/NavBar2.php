@@ -1,10 +1,10 @@
 <?php
 
 $conn = include '../conexion/conexion.php';
-$kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
-$uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
-$nahualesNav = $conn->query("SELECT nombre FROM tiempo_maya.nahual order by nombre;");
-$energiasNav = $conn->query("SELECT id, nombre FROM tiempo_maya.energia order by id;");
+$kinesNav = $conn->query("SELECT nombre FROM tiempomaya.kin order by nombre;");
+$uinalesNav = $conn->query("SELECT nombre FROM tiempomaya.uinal order by nombre;");
+$nahualesNav = $conn->query("SELECT nombre FROM tiempomaya.nahual order by nombre;");
+$energiasNav = $conn->query("SELECT id, nombre FROM tiempomaya.energia order by id;");
 
 ?>
 <?php include "../mensaje.php"; ?>

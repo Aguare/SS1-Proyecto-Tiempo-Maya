@@ -414,3 +414,41 @@ h6 {
   font-size: 13px;
   color: #ccc;
 }
+
+
+
+
+.infografia-container {
+  margin-top: 20px;
+  padding: 30px;
+  background-image: url('../img/fondo1.png') !important; 
+  background-size: cover; 
+  background-position: center;
+  background: #f9f9f9; /* Esta propiedad debería ir después de background-image */
+  border: 10px solid #2dc997;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 10px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.info-segmento {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.info-segmento h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.info-segmento p {
+  color: #666;
+  font-size: 16px;
+}
