@@ -70,8 +70,8 @@ $energiasNav = $conn->query("SELECT id, nombre FROM tiempo_maya.energia order by
                           $nameImage = str_replace("´", "", $nameImage);
                           $nameImage = str_replace(" ", "", $nameImage);
                           $nameImage = strtolower($nameImage);
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>
-                          <img src='../img/uinales/" . $nameImage . ".png" . "' class='rounded mx-2' height='30px'>" . $uinal['nombre'] . "</a></li>";
+                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $uinal['nombre'] . "'>
+                          <img src='../img/uinales/" . $nameImage . ".png" . "' style='filter: invert(50%) ;' class='rounded mx-2' height='30px'>" . $uinal['nombre'] . "</a></li>";
                         }
                       } ?>
                   </ul>
