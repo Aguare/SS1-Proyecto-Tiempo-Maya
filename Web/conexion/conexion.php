@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username_DB = "root";
-$password_DB = "ElPato24";
+$password_DB = "Daniel123";
 $dbname = "tiempo_maya";
 
 // Create connection

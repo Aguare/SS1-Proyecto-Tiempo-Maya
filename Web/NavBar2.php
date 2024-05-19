@@ -43,7 +43,13 @@ $energiasNav = $conn->query("SELECT id, nombre FROM tiempo_maya.energia order by
                     <div div style="width: 200px; height: 400px; overflow-y: scroll;">
                       <?php if (is_array($kinesNav) || is_object($kinesNav)) {
                         foreach ($kinesNav as $kin) {
-                          echo "<li class='nav-item'><a class='nav-link' href='../models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>" . $kin['nombre'] . "</a></li>";
+                          $nameImage = $kin['nombre'];
+                          $nameImage = str_replace("'", "", $nameImage);
+                          $nameImage = str_replace("´", "", $nameImage);
+                          $nameImage = str_replace(" ", "", $nameImage);
+                          $nameImage = strtolower($nameImage);
+                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>
+                          <img src='../img/kin/" . $nameImage . ".png" . "' class='rounded mx-2' height='30px'>" . $kin['nombre'] . "</a></li>";
                         }
                       } ?>
                   </ul>
@@ -54,12 +60,18 @@ $energiasNav = $conn->query("SELECT id, nombre FROM tiempo_maya.energia order by
                     Uinal
                   </button>
                   <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=uinal"
-                    style="font-size: 13px;">Uniales </a>
+                    style="font-size: 13px;">Uinales </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div div style="width: 200px; height: 400px; overflow-y: scroll;">
                       <?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
                         foreach ($uinalesNav as $uinal) {
-                          echo "<li class='nav-item'><a class='nav-link' href='../models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>" . $uinal['nombre'] . "</a></li>";
+                          $nameImage = $uinal['nombre'];
+                          $nameImage = str_replace("'", "", $nameImage);
+                          $nameImage = str_replace("´", "", $nameImage);
+                          $nameImage = str_replace(" ", "", $nameImage);
+                          $nameImage = strtolower($nameImage);
+                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>
+                          <img src='../img/uinales/" . $nameImage . ".png" . "' class='rounded mx-2' height='30px'>" . $uinal['nombre'] . "</a></li>";
                         }
                       } ?>
                   </ul>
